@@ -95,8 +95,8 @@ int main()
                         cout << "No solution found...." << endl:
                         cout << "Solution found!" << endl;
 
-	free(T);  	
-	free(N);
+	// free(T); // these are okay, just gone for testing  	
+	// free(N);
 
 	return 0;
 }

@@ -13,6 +13,11 @@
 #include <queue>
 #include <iostream>
 #include <vector>
+#include <unordered_set>
+#include <unordered_map>
+#include <memory>
+
+#include "cheapnode.hpp"
 
 using namespace std;
 
@@ -20,6 +25,7 @@ class Tree
 {
 	public:
 		Tree(unsigned long long incomingMultiple, vector<unsigned short>* incomingSymbols);
+		Tree(unsigned long long incomingMultiple, Node* currentNode);
 		~Tree();
 		Node* solve();
 		Node* root;
@@ -27,13 +33,12 @@ class Tree
 	private:
 		unsigned long long multiple;
 		vector<unsigned short>* symbols;
-		vector<unsigned short>* relaxed;
 
 		void setChildren(Node* currentNode);
-		void setChildrenRelaxed(Node* currentNode);
+		void setChildrenRelaxed(CheapNode* currentNode);
 		void sortChildren(Node* currentNode);
 		unsigned long long transition(unsigned long long currentState, unsigned short nextInput);
-		unsigned short solveDFS();
+		unsigned short solveDFS(Node* currentNode);
 };
 
 #endif

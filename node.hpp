@@ -21,13 +21,16 @@ class Node
 		Node(unsigned long long currentState, unsigned short prevInput, Node* parent);
 		~Node();
 
-		unsigned int heuristic();
+		unsigned short numParents() const;
 		void printChildren();
 		void print();
 
 		// Psuedo-DFA values
 		unsigned long long currentState;
 		unsigned short prevInput;
+		unsigned short gvalue;
+		unsigned short hvalue;
+		unsigned short fvalue;
 
 		// Nodes
 		vector<Node*>* children;
