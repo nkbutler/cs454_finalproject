@@ -149,8 +149,8 @@ Node* Tree::solve()
 				}
 
 				openSet.insert({childMod, N->children->at(i)});
-				// N->children->at(i)->hvalue = solveDFS(N->children->at(i));
-                                N->children->at(i)->hvalue = 0;
+				N->children->at(i)->hvalue = solveDFS(N->children->at(i));
+                                // N->children->at(i)->hvalue = 0;
 				N->children->at(i)->fvalue = N->children->at(i)->hvalue + N->children->at(i)->gvalue;
 				Q.push(N->children->at(i));
 				// cout << "QUEUE SIZE: " << Q.size() << endl;
@@ -162,7 +162,7 @@ Node* Tree::solve()
 				openSet.insert({childMod, N->children->at(i)});
 				N->children->at(i)->gvalue = N->gvalue + 1;
 				// N->children->at(i)->hvalue = solveDFS(N->children->at(i));
-                        	N->children->at(i)->hvalue = 0;
+                        	// N->children->at(i)->hvalue = 0;
 				N->children->at(i)->fvalue = N->children->at(i)->hvalue + N->children->at(i)->gvalue;
 				Q.push(N->children->at(i));
 				// cout << "QUEUE SIZE: " << Q.size() << endl;
